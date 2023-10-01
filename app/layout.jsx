@@ -1,8 +1,12 @@
 import Navbar from './components/navbar';
 import './globals.css';
-import { Big_Shoulders_Text as Ptext } from 'next/font/google';
+import { Sansita } from 'next/font/google';
 
-const ptext = Ptext({ subsets: ['latin'] });
+const sansita = Sansita({
+  subsets: ['latin'],
+  weight: ['400', '700', '900', '800'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Prateek Singh',
@@ -12,15 +16,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${ptext.className} p-14 h-screen bg-[#000] z-20`}>
+      <body className={`${sansita.className} p-14 h-screen bg-[#282A3A]`}>
         <div
           className={`
           border-solid 
-          border
-         border-[#FFDC73] 
+          border-x
+         border-[#FAF0E6] 
           rounded-[50px] 
           h-full 
-          text-[#FFDC73]
+          text-[#FAF0E6]
           flex
           flex-col
           items-center
