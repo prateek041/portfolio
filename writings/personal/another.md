@@ -1,5 +1,5 @@
 ---
-title: 'Journey So Far'
+title: 'Another'
 date: 'March 5, 2021'
 description: 'How my journey has been so far'
 ---

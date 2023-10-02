@@ -7,7 +7,7 @@ const textFont = Montserrat({
 
 export default function AboutPage() {
   return (
-    <div className={textFont.className}>
+    <div className={`${textFont.className} text-base mt-5 md:mt-20`}>
       <Intro />
     </div>
   );

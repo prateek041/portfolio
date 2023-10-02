@@ -20,9 +20,8 @@ export default function RootLayout({ children }) {
         <div
           className={`
           border-solid 
-          border-x
+          border-l
          border-[#FAF0E6] 
-          rounded-[50px] 
           h-full 
           text-[#FAF0E6]
           flex

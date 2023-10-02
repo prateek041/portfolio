@@ -1,91 +1,36 @@
+import Journey from './journey';
+import Link from 'next/link';
+
 export default function Intro() {
   return (
-    <div className="container overflow-hidden mt-20">
-      <div className="container max-h-[70vh] overflow-y-auto">
-        <div className="flex flex-col gap-y-2 pb-2">
-          <div className="text-4xl font-medium">
+    <div className="overflow-hidden">
+      <div className="max-h-[70vh] overflow-y-auto">
+        <div className="flex flex-col gap-y-4 pb-2 max-w-4xl">
+          <div className="text-4xl font-semibold">
             <h1> I am a software Engineer</h1>
           </div>
-          <p className="">
+          <p>
             I love Open Source and building software. My current experience is
             with Web and Cloud Native Technologies, but I like exploring. How ?
             my journey below will give a hint !
           </p>
-          <div>
-            <p>Resume {`-->`}</p>
-            <p>Github {`-->`}</p>
+          <div className="flex flex-col">
+            <Link
+              href="https://drive.google.com/file/d/13UYacxDFT2HjBhCdA0bFY2VZXUcWs0Lc/view?usp=share_link"
+              target="_blank"
+            >
+              Resume {`-->`}
+            </Link>
+            <Link href="https://github.com/prateek041" target="_blank">
+              GitHub {`-->`}
+            </Link>
+          </div>
+          <div className="flex flex-col gap-y-6">
+            <h1 className="text-4xl font-semibold">Journey So Far</h1>
+            <Journey />
           </div>
         </div>
         {/* This is tbe blog content */}
-        <div>
-          <h1 className="text-4xl font-semibold">Journey So Far</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            facere numquam voluptatum repudiandae dignissimos, earum molestiae
-            dicta ducimus voluptate velit non eius saepe. Commodi sint sed
-            facere enim officia in eum, ad natus, impedit exercitationem quasi
-            at soluta modi quas obcaecati laborum totam quo corrupti tempore
-            tempora ipsa aut. In nulla modi recusandae beatae, amet nobis iure
-            ex saepe veritatis autem nihil repellat laboriosam, debitis
-            similique. Dolores nemo consequuntur ullam delectus. Incidunt sint
-            alias voluptate modi et, ducimus obcaecati hic.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            facere numquam voluptatum repudiandae dignissimos, earum molestiae
-            dicta ducimus voluptate velit non eius saepe. Commodi sint sed
-            facere enim officia in eum, ad natus, impedit exercitationem quasi
-            at soluta modi quas obcaecati laborum totam quo corrupti tempore
-            tempora ipsa aut. In nulla modi recusandae beatae, amet nobis iure
-            ex saepe veritatis autem nihil repellat laboriosam, debitis
-            similique. Dolores nemo consequuntur ullam delectus. Incidunt sint
-            alias voluptate modi et, ducimus obcaecati hic.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            facere numquam voluptatum repudiandae dignissimos, earum molestiae
-            dicta ducimus voluptate velit non eius saepe. Commodi sint sed
-            facere enim officia in eum, ad natus, impedit exercitationem quasi
-            at soluta modi quas obcaecati laborum totam quo corrupti tempore
-            tempora ipsa aut. In nulla modi recusandae beatae, amet nobis iure
-            ex saepe veritatis autem nihil repellat laboriosam, debitis
-            similique. Dolores nemo consequuntur ullam delectus. Incidunt sint
-            alias voluptate modi et, ducimus obcaecati hic.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            facere numquam voluptatum repudiandae dignissimos, earum molestiae
-            dicta ducimus voluptate velit non eius saepe. Commodi sint sed
-            facere enim officia in eum, ad natus, impedit exercitationem quasi
-            at soluta modi quas obcaecati laborum totam quo corrupti tempore
-            tempora ipsa aut. In nulla modi recusandae beatae, amet nobis iure
-            ex saepe veritatis autem nihil repellat laboriosam, debitis
-            similique. Dolores nemo consequuntur ullam delectus. Incidunt sint
-            alias voluptate modi et, ducimus obcaecati hic.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            facere numquam voluptatum repudiandae dignissimos, earum molestiae
-            dicta ducimus voluptate velit non eius saepe. Commodi sint sed
-            facere enim officia in eum, ad natus, impedit exercitationem quasi
-            at soluta modi quas obcaecati laborum totam quo corrupti tempore
-            tempora ipsa aut. In nulla modi recusandae beatae, amet nobis iure
-            ex saepe veritatis autem nihil repellat laboriosam, debitis
-            similique. Dolores nemo consequuntur ullam delectus. Incidunt sint
-            alias voluptate modi et, ducimus obcaecati hic.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            facere numquam voluptatum repudiandae dignissimos, earum molestiae
-            dicta ducimus voluptate velit non eius saepe. Commodi sint sed
-            facere enim officia in eum, ad natus, impedit exercitationem quasi
-            at soluta modi quas obcaecati laborum totam quo corrupti tempore
-            tempora ipsa aut. In nulla modi recusandae beatae, amet nobis iure
-            ex saepe veritatis autem nihil repellat laboriosam, debitis
-            similique. Dolores nemo consequuntur ullam delectus. Incidunt sint
-            alias voluptate modi et, ducimus obcaecati hic.
-          </p>
-        </div>
       </div>
     </div>
   );
