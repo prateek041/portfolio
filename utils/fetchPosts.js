@@ -42,3 +42,9 @@ export async function getArticle(path) {
     articleHTML,
   };
 }
+
+export async function getSeriesStructure(path) {
+  const series = getBlogs(path);
+  console.log(series);
+  return;
+}
