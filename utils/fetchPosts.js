@@ -38,7 +38,13 @@ export async function getArticle(path) {
   const articleHTML = (
     await remark().use(html).process(matterResult.content)
   ).toString();
+
   return {
     articleHTML,
   };
+}
+
+export async function getSeriesStructure(path) {
+  const series = getBlogs(path);
+  return series;
 }

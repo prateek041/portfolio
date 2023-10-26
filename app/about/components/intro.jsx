@@ -30,7 +30,6 @@ export default function Intro() {
             <Journey />
           </div>
         </div>
-        {/* This is tbe blog content */}
       </div>
     </div>
   );
