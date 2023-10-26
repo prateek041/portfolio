@@ -40,7 +40,7 @@ export default async function Page({ params }) {
 
   return (
     <div
-      className="flex flex-col gap-y-4 leading-loose w-3/4 px-6 max-h-[70vh] overflow-y-auto"
+      className="flex flex-col gap-y-4 leading-relaxed max-h-[70vh] overflow-y-auto"
       dangerouslySetInnerHTML={{ __html: articleHTML }}
     />
   );

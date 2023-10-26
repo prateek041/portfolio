@@ -10,12 +10,10 @@ This is the base knowledge you need before you truly understand what is the use 
 
 It is a back-end cybersecurity measure, a set of rules, policies and procedures needed to create, manage, distribute and revoke digital certificates and manage public-key encryption. It involves these primary blocks:
 
-![19_06_12_Andreas_Authorising_Certificates_Blog_post.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383907988/XCWcGzHcG.jpg align="left")
+![19_06_12_Andreas_Authorising_Certificates_Blog_post.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383907988/XCWcGzHcG.jpg )
 
 * Creation of certificate authority.
-    
 * Provisioning of certificates.
-    
 
 The certificate Authority is provisioned and initialized first. Then, any two systems that want to authenticate using TLS send the CA, a Certificate-signing-request (CSR), which gives them a TLS certificate that they can use to securely connect and communicate with other trusted services.
 
@@ -25,7 +23,7 @@ If you understand all of what I said, you don't need to read anything written be
 
 ## Security basics
 
-![Client-server-model.svg.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669384238407/4-xwPDmKq.png align="left")
+![Client-server-model.svg.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669384238407/4-xwPDmKq.png)
 
 I will be considering the client-server architecture here because almost all the people are familiar with websites, clients etc. But the concepts explained here can be used for any two systems to communicate.
 
@@ -36,13 +34,9 @@ That is because of many flaws present in bare HTTP (many other protocols), the b
 The necessary things to be present when two systems communicate are:
 
 * Confidentiality - Only the one supposed to see the message should see it, no unauthorized access.
-    
 * Integrity - The message was not altered before it reached from client to server.
-    
 * Identification - Who is the one the client is talking to?
-    
 * Authentication - Is the server a real one? or they are impersonating someone else?
-    
 
 This gives rise to security and it has a long history and iteration, which of course I am not going to talk about, we will start with this.
 
@@ -54,15 +48,15 @@ You can google what cryptography means or just check out "Caesar cipher" and you
 
 ### Single key / Symmetric Cryptography
 
-![Symmetric-Encryption.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383956441/DXu2q-6th.png align="left")
+![Symmetric-Encryption.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383956441/DXu2q-6th.png)
 
 So, the data that the client wants to send to the Server is now going to be *encrypted* with a *Key*. The server can use that key to *decrypt* the messages i.e. **SINGLE KEY FOR BOTH, ENCRYPTION AND DECRYPTION**.
 
 This also has many problems, How will the client provide the key to the server? and what if the key itself is stolen and the bad person (hacker) makes a copy of it? They can also use the same key to read client's secret messages! what was the point of the whole encrypting thing anyway then? So, we have a better way, the *Asymmetric key encryption* that solves the problem of sharing keys.
 
-### Public key / Asymmetric Cryptography:
+### Public key / Asymmetric Cryptography
 
-![Asymmetric cryptography](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383999443/jUAflbS--.png align="left")
+![Asymmetric cryptography](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383999443/jUAflbS--.png)
 
 This process uses **Mathematics**, but all you need to know is that there are two keys (instead of one) and they are mathematically connected in a way that, data can be encrypted with one key and decrypted only by the other i.e. **ONE KEY FOR ENCRYPTION, ANOTHER FOR DECRYPTION**. The key pair is called a public-private key pair, one property is that you cannot derive *private key* from a *public key* but the reverse is possible.
 
@@ -84,7 +78,7 @@ What is the downside? **Asymmetric encryption is slow in comparison to Symmetric
 
 A message digest is a fixed number of characters that is Unique, it is a numeric representation of the contents of the messages.
 
-![message-digest.webp](https://cdn.hashnode.com/res/hashnode/image/upload/v1669364747420/1VDeGndRy.webp align="left")
+![message-digest.webp](https://cdn.hashnode.com/res/hashnode/image/upload/v1669364747420/1VDeGndRy.webp)
 
 As you know the size of the message can increase or decrease depending on the sender, but message digest is unique because it is created by transforming the content of a message (of changing size) into a numeric representation (of fixed size) using a hashing algorithm. The hash created has two properties:
 
@@ -109,9 +103,7 @@ message: {
 The above code is just an example, but it contains:
 
 * The encrypted message (encrypted with the receiver's public key).
-
 * The message digest
-
 * The hashing function is used to create the message digest.
 
 Now, on receiving the message, only the server can decrypt it because it was signed by its public key, hence **Confidentiality**. After decrypting, the server uses the hashing function to convert the (decrypted) message into a message digest.
@@ -142,7 +134,7 @@ Certificates and the protocols used for verification have a long history. Starti
 
 So, the client wants to talk to a server, server's public key is openly available so messages can be sent to it, but, what is the proof that there is no one impersonating that server, After all, there is no proof that the public key do belong to that server and not some random person, who put their public key in place of server's. This "trust" or "assurance" is given by the digital certificates.
 
-![veracode-appsec_man-middle-attack.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669365229747/ABnfjLHSZ.png align="left")
+![veracode-appsec_man-middle-attack.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669365229747/ABnfjLHSZ.png)
 
 ### What is a certificate
 
@@ -157,7 +149,7 @@ A certificate is a way of binding a unique **Identification** with a **public ke
   * Current version of X.509 standard
   * Date of creation and expiration of Certificate.
 
-![obtain-cert.gif](https://cdn.hashnode.com/res/hashnode/image/upload/v1669365648257/Rf6AIdalG.gif align="left")
+![obtain-cert.gif](https://cdn.hashnode.com/res/hashnode/image/upload/v1669365648257/Rf6AIdalG.gif)
 
 The organization that wants to be verified sends its unique identification and the public key to a CA, the request is called Certificate-signing-request (CSR), and the CA takes the info and verifies it. Eventually *Issues* a certificate by signing the information with it's private key. Now the organization is *trusted* and their certificate contains all the information needed to authenticate the server.
 
@@ -193,7 +185,7 @@ Today, any website or remote server, that is TLS secured and you try to connect 
 
 #### This is how it happens, a simple version
 
-![1_24.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669365777533/Ovra_EbuF.png align="left")
+![1_24.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669365777533/Ovra_EbuF.png)
 
 * It starts with a **"Client Hello"** message, that contains the following information:
   * The TLS protocol version, supported by the client, and an order of preference.
@@ -235,7 +227,7 @@ This is all the prerequisite knowledge we needed to get started with CFSSL and w
 
 ### How it works as a Bundler or, what even is a Bundler?
 
-![image01_4.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669366367768/Kl21xU7NL.png align="left")
+![image01_4.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669366367768/Kl21xU7NL.png)
 
 * In the most simple terms, whenever you see the TLS certificate of any trusted website, you'll see a chain, usually split between root, intermediate and leaf.
 * The leaf certificate is what is owned by the owner of a website, and it is trusted by the authority above it, which itself is trusted by another. It is a chain, that traces back to the root authority, which self signs it's certificates.
@@ -252,13 +244,13 @@ This is all the prerequisite knowledge we needed to get started with CFSSL and w
 
 #### CFSSL as a certificate Authority
 
-![19_06_12_Andreas_Authorising_Certificates_Blog_post.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1669366433644/BoXlH-KEp.jpg align="left")
+![19_06_12_Andreas_Authorising_Certificates_Blog_post.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1669366433644/BoXlH-KEp.jpg)
 
 * It does all that is needed for certificate creation, which includes creating a private key, building a CSR and eventually signing the certificates.
 * So, if you want to build certificates on your own, use CFSSL as the CA, which will sign your certificates!
 
 ### Why is it used in Kubernetes the hard way?
 
-![kubernetes-architecture-diagram-1.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383813312/oAdFq48rB.png align="left")
+![kubernetes-architecture-diagram-1.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669383813312/oAdFq48rB.png)
 
 * Since Kubernetes itself is a distributed system, it contains many different components like an API server, Kube controller manager, Kube scheduler, Kube proxy etc. All of them are separate services and need to communicate with each other for the cluster to work. For security purposes, these services use TLS to communicate and follow the PKI infrastructure, therefore they need things like (trusted) TLS certificates and CA to provision them. CFSSL does that for us.
