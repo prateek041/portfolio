@@ -1,19 +1,12 @@
 import Link from 'next/link';
-import fs from 'fs';
-import matter from 'gray-matter';
 
 export default function NavItem({ item }) {
-  const fileData = fs.readFileSync(item.path, 'utf8');
-
-  const frontMatter = matter(fileData);
-  const { title, date } = frontMatter.data;
-
-  const articleName = item.name.substring(0, item.name.lastIndexOf('.'));
+  const { fileName, title, date } = item;
   return (
-    <Link className="no-underline font-normal" href={`/writings/${item.name}`}>
-      <div className="flex flex-col gap-y-0">
-        <p className="font-medium">{articleName}</p>
-        <p className="text-xs">{date}</p>
+    <Link className="no-underline" href={`/writings/${fileName}`}>
+      <div className="flex flex-col py-2 leading-snug">
+        <p className="font-normal">{title}</p>
+        <p className="text-xs font-light">{date}</p>
       </div>
     </Link>
   );

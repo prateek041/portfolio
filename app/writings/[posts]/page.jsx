@@ -1,10 +1,16 @@
-import { getArticle, getSeriesStructure } from '@/utils/fetchPosts';
+import { getArticle, getArticleNameAndLocation } from '@/utils/fetchPosts';
 import { join } from 'path';
+import { Montserrat } from 'next/font/google';
+import { IoIosArrowRoundBack } from 'react-icons/io';
+
+const textFont = Montserrat({
+  subsets: ['latin'],
+});
 
 const postsDirectory = join(process.cwd(), 'writings');
 
 export async function generateStaticParams() {
-  const series = await getSeriesStructure(postsDirectory);
+  const series = getArticleNameAndLocation();
 
   const articles = [];
   Object.entries(series).map(([key, value]) => {
@@ -19,7 +25,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const articleName = params.posts;
 
-  const series = await getSeriesStructure(postsDirectory);
+  const series = getArticleNameAndLocation(postsDirectory);
 
   let article = '';
   await Promise.all(
@@ -39,9 +45,15 @@ export default async function Page({ params }) {
     : 'Article not found';
 
   return (
-    <div
-      className="flex flex-col gap-y-4 leading-relaxed max-h-[70vh] overflow-y-auto"
-      dangerouslySetInnerHTML={{ __html: articleHTML }}
-    />
+    <div className={`${textFont.className} flex flex-col gap-y-5`}>
+      <div className="flex items-center gap-x-1">
+        <IoIosArrowRoundBack />
+        <p className="text-sm">Back</p>
+      </div>
+      <div
+        className={`flex flex-col gap-y-4 font-light leading-relaxed tracking-wide max-h-[75vh] md:max-h-[70vh] overflow-y-auto`}
+        dangerouslySetInnerHTML={{ __html: articleHTML }}
+      />
+    </div>
   );
 }
