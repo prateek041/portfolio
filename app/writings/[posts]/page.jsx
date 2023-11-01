@@ -2,6 +2,7 @@ import { getArticle, getArticleNameAndLocation } from '@/utils/fetchPosts';
 import { join } from 'path';
 import { Montserrat } from 'next/font/google';
 import { IoIosArrowRoundBack } from 'react-icons/io';
+import Link from 'next/link';
 
 const textFont = Montserrat({
   subsets: ['latin'],
@@ -46,10 +47,13 @@ export default async function Page({ params }) {
 
   return (
     <div className={`${textFont.className} flex flex-col gap-y-5`}>
-      <div className="flex items-center gap-x-1">
-        <IoIosArrowRoundBack />
-        <p className="text-sm">Back</p>
-      </div>
+      <Link href="/writings">
+        {' '}
+        <div className="flex items-center gap-x-1">
+          <IoIosArrowRoundBack />
+          <p className="text-sm">Back</p>
+        </div>
+      </Link>
       <div
         className={`flex flex-col gap-y-4 font-light leading-relaxed tracking-wide max-h-[75vh] md:max-h-[70vh] overflow-y-auto`}
         dangerouslySetInnerHTML={{ __html: articleHTML }}
