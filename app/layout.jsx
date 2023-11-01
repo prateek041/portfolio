@@ -16,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${sansita.className} p-14 h-screen bg-[#282A3A]`}>
+      <body
+        className={`${sansita.className} p-5 md:p-14 h-screen bg-[#282A3A]`}
+      >
         <div
           className={`
           border-solid 

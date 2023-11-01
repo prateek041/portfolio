@@ -1,9 +1,9 @@
-import { getArticle, getBlogs } from '@/utils/fetchPosts';
+import { getArticle, getArticleNameAndLocation } from '@/utils/fetchPosts';
 import { join } from 'path';
 
 export default async function Journey() {
   const postsDirectory = join(process.cwd(), 'writings');
-  const series = getBlogs(postsDirectory);
+  const series = getArticleNameAndLocation(postsDirectory);
 
   let personalArticlePath = '';
   Object.entries(series).map(([key, value]) => {
@@ -20,7 +20,7 @@ export default async function Journey() {
 
   return (
     <div
-      className="flex flex-col gap-y-4 leading-loose"
+      className="flex flex-col font-light gap-y-4 leading-loose"
       dangerouslySetInnerHTML={{ __html: articleHTML }}
     />
   );
